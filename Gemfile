@@ -71,3 +71,4 @@ group :test do
   gem "webdrivers"
 end
 gem 'mysql2', '~> 0.5.2'
+gem 'pry'

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
   resources :employees
+  resources :documents          
   # patch '/employees', to: 'employees#update'
 
 

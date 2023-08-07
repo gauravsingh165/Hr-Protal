@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_085802) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_07_070159) do
+  create_table "documents", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "doc_type"
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_documents_on_employee_id"
+  end
+
   create_table "employees", charset: "utf8mb3", force: :cascade do |t|
     t.string "first_name"
     t.string "middle_name"
@@ -26,4 +35,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_085802) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "documents", "employees"
 end

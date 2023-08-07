@@ -25,9 +25,18 @@
           <td><%= employee.name %></td>
           <td><%= employee.personal_email %></td>
           <td><%= employee.full_address%></td>
-          <td><%= link_to "Edit", edit_employee_path(employee),class: "btn btn-primary"%>
-         <%= link_to "View", employee_path(employee),class: "btn btn-info"%></td>
-
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Actions
+              </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><%= link_to "Edit", edit_employee_path(employee), class: "dropdown-item, btn btn-primary" %></li>
+                  <li><%= link_to "View", employee_path(employee), class: "dropdown-item, btn btn-info" %></li>
+                  <li><%= link_to "Delete", employee_path(employee), class: "dropdown-item, btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to delete the employee?' } %></li>
+                </ul>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -4,14 +4,23 @@
       <h2 class="text-center"> Doc Details </h2>
       <div class='row mt-5'>
         <div class='col-lg-6'>
-          <p class='lead'><strong>Name:</strong><%=@document.name%></p>
-          <p class='lead'><strong>Doc Type:</strong><%= @document.doc_type%></p>
-          <p class='lead'><strong>Employee Name:</strong><%=@document.employee.name%></p> 
+          <% if @document.image.attached? %>
+            <style>
+              img, svg {
+                vertical-align: middle;
+                height: 600px;
+                width:600px
+              }
+            </style>
+              <%= image_tag @document.image  %>
+          <%end%>
+            <p class='lead'><strong>Name:</strong><%=@document.name%></p>
+            <p class='lead'><strong>Doc Type:</strong><%= @document.doc_type%></p>
+            <p class='lead'><strong>Employee Name:</strong><%=@document.employee.name%></p> 
         </div>
       </div>
-      <%= link_to 'Back to Document' , documents_path,class:'btn btn-primary btn-lg rounded-0'%>
-      <%= link_to 'Edit Document' , edit_document_path(@document),class:'btn btn-primary btn-lg rounded-0'%>
-
+        <%= link_to 'Back to Document' , documents_path,class:'btn btn-primary btn-lg rounded-0'%>
+        <%= link_to 'Edit Document' , edit_document_path(@document),class:'btn btn-primary btn-lg rounded-0'%>
     </div>
   </div>
 </div>
